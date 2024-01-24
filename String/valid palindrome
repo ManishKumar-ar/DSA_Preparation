@@ -1,0 +1,111 @@
+
+Let's analyze the time complexity and space complexity for the three provided approaches:
+
+Approach 1: Two-Pointer Iteration
+Time Complexity:
+
+Converting to lowercase takes O(n), where n is the length of the input string.
+Removing non-alphanumeric characters using erase and remove_if takes O(n).
+Checking if it's a palindrome with two pointers takes O(n/2), which simplifies to O(n).
+The overall time complexity is O(n).
+Space Complexity:
+
+The space complexity is O(1) as we are using a constant amount of extra space.
+Approach 2: Using a Stack
+Time Complexity:
+
+Converting to lowercase takes O(n).
+Removing non-alphanumeric characters using erase and remove_if takes O(n).
+Pushing the first half onto the stack takes O(n/2), which simplifies to O(n).
+Comparing with the second half takes O(n/2), which simplifies to O(n).
+The overall time complexity is O(n).
+Space Complexity:
+
+The space complexity is O(n/2) for the stack, which simplifies to O(n) in the worst case.
+Approach 3: Using Reverse String
+Time Complexity:
+
+Converting to lowercase takes O(n).
+Removing non-alphanumeric characters using erase and remove_if takes O(n).
+Reversing the string using reverse takes O(n).
+Comparing the original string with its reverse takes O(n).
+The overall time complexity is O(n).
+Space Complexity:
+
+The space complexity is O(n) as we are storing a reversed copy of the string.
+In summary, all three approaches have a time complexity of O(n), where n is the length of the input string.
+The space complexity varies, with Approach 1 being the most memory-efficient with O(1) space, and Approaches 2 and 3 using O(n) space for storing intermediate data structures.
+
+
+
+
+#include <iostream>
+using namespace std;
+class Solution
+{
+public:
+    bool isPalindrome(string name)
+    {
+        // Convert to lowercase
+        for (int i = 0; name[i] != '\0'; i++)
+        {
+            if (name[i] >= 65 && name[i] <= 90)
+            {
+                name[i] += 32;
+            }
+        }
+
+        // Remove non-alphanumeric characters
+        int j = 0;
+        for (int i = 0; name[i] != '\0'; i++)
+        {
+            if ((name[i] >= 'a' && name[i] <= 'z') || (name[i] >= '0' && name[i] <= '9'))
+            {
+                name[j++] = name[i];
+            }
+        }
+        name.resize(j);
+
+     cout << "String after conversion: " << name << endl;  // Print the modified string
+
+        // Check if the string is a palindrome
+        int len = name.length();
+        int left = 0;
+        int right = len - 1;
+
+        while (left < right)
+        {
+            if (name[left] != name[right])
+            {
+                cout << "not palindrome";
+                return false;
+            }
+            left++;
+            right--;
+        }
+
+        cout << "palindrome";
+        return true;
+    }
+};
+
+int main()
+{
+    Solution solution;
+    // Example usage:
+    string input = "A man, a plan, a canal, Panama!";
+    
+    cout << "Original string: " << input << endl;
+
+    if (solution.isPalindrome(input))
+    {
+        cout << "The string is a palindrome." << endl;
+    }
+    else
+    {
+        cout << "The string is not a palindrome." << endl;
+    }
+
+  
+    return 0;
+}
