@@ -1,0 +1,38 @@
+#include <iostream>
+#include <cmath>                        // we not use maths.h or maths
+using namespace std;
+
+float shortestpathdirection(char givenpath[])
+{
+    int x = 0, y = 0;
+    for (int i = 0; givenpath[i] != '\0'; i++)
+    {
+        if (givenpath[i] == 'W')
+            x--;                                       // here we use the post increment but here we can also use the pre-increment it would not effect our code.
+        else if (givenpath[i] == 'E')
+            x++;
+        else if (givenpath[i] == 'N')
+            y++;
+        else if (givenpath[i] == 'S')
+            y--;
+    }
+
+    int x2 = x * x;
+    int y2 = y * y;
+
+    return sqrt(x2 + y2);                      // directly we use the  function, without the library syntax
+}
+
+int main()
+{
+    char path[] = "WNEENESENNN";
+    float result = shortestpathdirection(path);
+    cout << result;
+
+    return 0;
+}
+
+
+
+//output - 
+/// 5
