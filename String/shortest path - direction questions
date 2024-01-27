@@ -36,3 +36,25 @@ int main()
 
 //output - 
 /// 5
+
+
+
+///const char* path = "WENS";
+
+
+/// This declares a pointer to a constant character (const char*). It's commonly used to point to a string literal.
+/// The string literal "WENS" is a constant array of characters, and the pointer path holds the address of the first character of this array.
+/// The content of the string literal is immutable, and attempting to modify it through the pointer path would result in undefined behavior.
+/// You can use functions that expect const char* or manipulate the pointer to navigate the characters in the string.
+
+
+
+/// char path = "WENS";
+
+/// This line of code is incorrect and would result in a compilation error because you are trying to assign a string literal to a single character (char).
+/// If you intend to declare a character array, you should use char path[] = "WENS"; instead.
+/// With char path[] = "WENS";, you create an array of characters and initialize it with the string "WENS". The array is modifiable, and you can change individual characters.
+
+
+
+
