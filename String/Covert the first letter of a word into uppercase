@@ -1,0 +1,66 @@
+toupper:
+
+Description: toupper is a function that converts a lowercase letter to its corresponding uppercase letter.
+Syntax: int toupper(int c);
+Parameters: c is an integer representing the character to be converted.
+Return Value: If c is a lowercase letter, toupper returns its uppercase equivalent. If c is not a lowercase letter, it returns the original character unchanged.
+
+isalpha:
+
+Description: isalpha is a function that checks whether a given character is an alphabetic character (either uppercase or lowercase).
+Syntax: int isalpha(int c);
+Parameters: c is an integer representing the character to be checked.
+Return Value: If c is an alphabetic character, isalpha returns a non-zero value (usually 1). If c is not an alphabetic character, it returns 0.
+
+
+
+In the provided C program, the condition if (s[i] == ' ' || s[i] == '\t') checks whether the character at position i in the string s is either a space (' ') or a tab character ('\t').
+This condition is used to identify word boundaries in the input string.
+
+In many cases, text input may have words separated by spaces or tabs. Using \t in the condition allows the program to recognize both space and tab characters as word separators
+
+
+
+
+
+
+
+
+
+#include <stdio.h>
+#include <ctype.h>                                /// in the header file -- isalpha and toupper both the funcntion are define.
+
+void convertToTitleCase(char *s) {
+    int i;
+
+    // Convert the first character to uppercase
+    if (s[0] != '\0' && isalpha(s[0]))
+        s[0] = toupper(s[0]);
+
+    // Loop through the string
+    for (i = 1; s[i] != '\0'; i++) {
+        // Check for spaces or tabs
+        if (s[i] == ' ' || s[i] == '\t') {                               /// here \t is for tab, we use here b/c to checks whether the character at position i in the string s is either a space (' ') or a tab character ('\t'). 
+            // Convert the next character to uppercase                     // In many cases, text input may have words separated by spaces or tabs. Using \t in the condition allows the program to recognize both space and tab characters as word separators.
+            if (s[i + 1] != '\0' && isalpha(s[i + 1]))
+                s[i + 1] = toupper(s[i + 1]);
+        }
+    }
+}
+
+int main() {
+    char str[] = "hello world example";
+    
+    printf("Original String: %s\n", str);
+
+    convertToTitleCase(str);
+
+    printf("Title Case String: %s\n", str);
+
+    return 0;
+}
+
+
+//output -
+Original String: hello world example
+Title Case String: Hello World Example
