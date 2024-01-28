@@ -1,0 +1,50 @@
+
+// to_string() is a C++ standard library function that converts numerical values, such as integers or floating-point numbers, to their string representation.
+// It's part of the <string> header.
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string compressString(const string &str)
+{
+    string compressed;
+    int count = 1;
+
+    for (int i = 0; i < str.length(); i++)
+    {
+        while (i  < str.length() -1 && str[i] == str[i + 1])
+        {
+            count++;
+            i++; // Move to the next character
+        }
+
+        compressed += str[i];
+        if (count > 1)
+        {
+            compressed += to_string(count);
+        }
+
+        count = 1; // Reset count for the next character
+    }
+
+    return compressed;
+}
+
+int main()
+{
+    string input = "aabcccccaaa";
+    string compressed = compressString(input);
+
+    cout << "Original String: " << input << endl;
+    cout << "Compressed String: " << compressed << endl;
+
+    return 0;
+}
+
+
+//output 
+Original String: aabcccccaaa
+Compressed String: a2bc5a3
+
