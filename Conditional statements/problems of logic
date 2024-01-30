@@ -1,0 +1,21 @@
+#include<iostream> 
+using namespace std;
+int main()
+{
+  int a =10, b=5;
+  bool x =(a>b) ? true : false;
+  cout<<x; 
+  
+  int y =(a>b) ? true : false;
+  cout<<y;
+
+}
+
+
+//output 11
+
+
+In C++, the bool type is a fundamental data type that can represent either true or false.
+When you print a bool using cout, it is displayed as 1 for true and 0 for false. This is just a convention in C++.
+
+So, when you print the value of x using cout, even though x is of type bool and has the value true, it will be displayed as 1:
