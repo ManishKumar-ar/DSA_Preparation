@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int getithbit(int num, int index)
+{
+    int bitmask = 1 << index;
+    if ((num & bitmask) == 0)
+    {
+        cout << "bit is 0" << endl;
+        return 0;
+    }
+    else
+    {
+        cout << "bit is 1" << endl;
+        return 1;
+    }
+}
+
+int main()
+{
+    getithbit(4, 1);  // Output: bit is 0
+    getithbit(10, 3); // Output: bit is 1
+    getithbit(2, 1);  // Output: bit is 1
+
+    return 0;
+}
