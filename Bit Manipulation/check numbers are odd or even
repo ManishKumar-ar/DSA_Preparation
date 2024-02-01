@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int counteven=0, countodd=0; // Corrected the variable name to counteven
+    int bitmask = 1;
+    int a[7]={10,5,6,8,9,1,100};
+    
+    for(int i=0; i<7; i++)
+    {
+        if(a[i] & bitmask)
+            countodd++;
+        else 
+            counteven++;
+    }
+    
+    cout << "even numbers are: " << counteven;
+    cout << "\nodd numbers are: " << countodd;
+
+}
+
+
+//output --
+even numbers are: 4
+odd numbers are: 3
+
+  
