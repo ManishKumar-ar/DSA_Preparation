@@ -42,3 +42,23 @@ int main()
         }
     }
 }
+
+
+
+
+
+The line k[i][w] = max(profit[i] + k[i - 1][w - weight[i]], k[i - 1][w]); is a crucial part of the dynamic programming algorithm for solving the 0/1 knapsack problem.
+Let's break down its purpose:
+
+k[i][w] represents the maximum profit that can be obtained with the first i items (considered so far) and a knapsack capacity of w.
+The decision is made based on two possibilities:
+
+Include the current item (profit[i] + k[i - 1][w - weight[i]]):
+
+If the weight of the current item (weight[i]) is less than or equal to the remaining capacity (w), it means that the current item can be included in the knapsack.
+profit[i] is the profit of the current item, and k[i - 1][w - weight[i]] is the maximum profit obtained with the remaining capacity after including the current item. 
+This is because we need to consider the best solution without the current item's weight.
+Exclude the current item (k[i - 1][w]):
+
+If including the current item exceeds the remaining capacity, we exclude the current item and take the maximum profit obtained without it.
+
