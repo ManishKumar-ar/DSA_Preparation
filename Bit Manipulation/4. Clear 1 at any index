@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+int setithbit(int num, int index)
+{
+    int bitmask = ~(1 << index);
+    int result = (num & bitmask);
+    cout<<result<<"  ";
+    
+
+}
+int main()
+{
+    setithbit(10,1);
+    setithbit(3,0);
+    setithbit(3,1);
+}
+
+
+///   output 
+///   8  2  1
