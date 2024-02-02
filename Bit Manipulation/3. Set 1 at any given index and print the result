@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int setithbit(int num, int index)
+{
+                                                               // Create a bitmask with a 1 at the specified index
+    int bitmask = 1 << index;
+
+                                                                  // Perform bitwise OR to set the bit at the specified index to 1
+    int result = (num | bitmask);
+
+                                                                           // Print the result (binary representation) for demonstration
+    cout << result << "  ";
+
+  
+}
+
+int main()
+{
+    // Example usage
+    setithbit(2, 0);                    // Output: 3 (binary: 11)
+    setithbit(10, 2);           // Output: 14 (binary: 1110)
+    setithbit(2, 1);           // Output: 2 (binary: 10)
+
+
+}
