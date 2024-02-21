@@ -1,3 +1,5 @@
+// here the time complexity is decrease from O( 2^n )  ---- O( n )
+
 #include<iostream>
 using namespace std;
 
