@@ -45,3 +45,7 @@ int main() {
 
     return 0;
 }
+
+//output 
+//Minimum cost: 9
+//Path: 1 2 6 8 
