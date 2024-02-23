@@ -44,3 +44,8 @@ int main() {
     std::cout << std::endl;
     return 0;
 }
+
+
+
+//output
+//3 5 7 9 10 11 12 13 16 24 
