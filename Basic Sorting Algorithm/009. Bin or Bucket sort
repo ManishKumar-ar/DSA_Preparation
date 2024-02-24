@@ -1,1 +1,33 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
 
+void BinSort(int A[], int n) {
+    int max_val = *max_element(A, A + n);
+    int bins[max_val + 1] = {0};
+
+    for (int i = 0; i < n; ++i)
+        bins[A[i]]++;
+
+    int idx = 0;
+    for (int i = 0; i <= max_val; ++i)
+        while (bins[i]--)
+            A[idx++] = i;
+}
+
+int main() {
+    int A[] = {6,8,3,10,15,6,9,12,6,3};
+    int n = sizeof(A) / sizeof(A[0]);
+    BinSort(A, n);
+
+    cout << "Sorted A: ";
+    for (int i = 0; i < n; ++i)
+        cout << A[i] << " ";
+    cout << endl;
+
+    return 0;
+}
+
+
+//output 
+Sorted A: 3 3 6 6 6 8 9 10 12 15 
