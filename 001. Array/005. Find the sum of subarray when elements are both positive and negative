@@ -1,0 +1,26 @@
+1 
+1 -2
+1 -2 6
+1 -2 6 -1
+1 -2 6 -1 3
+the sum of the individual starting vertex is 7
+
+-2
+-2 6
+-2 6 -1
+-2 6 -1 3
+the sum of the individual starting vertex is 6
+
+6
+6 -1
+6 -1 3
+the sum of the individual starting vertex is 8
+
+-1
+-1 3
+the sum of the individual starting vertex is 2
+
+3
+the sum of the individual starting vertex is 3
+
+The sum of the subset is  8
