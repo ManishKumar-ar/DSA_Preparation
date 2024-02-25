@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int arr[5] = {2, 4, 6, 8, 10};
+    int sum = arr[0];
+    for (int i = 0; i < 5; i++)
+    {
+        int currSum = 0;
+
+        for (int j = i; j < 5; j++)
+        {
+            for (int k = i; k <= j; k++)
+            {
+                cout << arr[k] << " ";
+            }
+
+            cout << endl;
+            currSum += arr[j];
+            if (currSum > sum)
+            {
+                sum = currSum;
+            }
+        }
+        cout << "the sum of the individual starting vertex is " << currSum << endl;
+        cout << endl;
+    }
+
+    cout << "The sum of the subset is  " << sum << endl;
+}
+
+// output
+// 2 
+// 2 4
+// 2 4 6
+// 2 4 6 8
+// 2 4 6 8 10
+// the sum of the individual starting vertex is 30
+
+// 4
+// 4 6
+// 4 6 8
+// 4 6 8 10
+// the sum of the individual starting vertex is 28
+
+// 6
+// 6 8
+// 6 8 10
+// the sum of the individual starting vertex is 24
+
+// 8
+// 8 10
+// the sum of the individual starting vertex is 18
+
+// 10
+// the sum of the individual starting vertex is 10
+
+// The sum of the subset is  30
