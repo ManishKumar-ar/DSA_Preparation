@@ -1,1 +1,55 @@
 
+#include <iostream>
+using namespace std;
+
+int trappedRainWater(int height[], int n)
+{
+
+    int leftMax[n];
+    int rightMax[n];
+
+    // Calculate left maximum heights
+    leftMax[0] = height[0];
+
+    for (int i = 1; i < n; i++)
+    {
+        leftMax[i] = max(leftMax[i - 1], height[i]);
+    }
+
+    // Calculate right maximum heights
+    rightMax[n - 1] = height[n - 1];
+
+    for (int i = n - 2; i >= 0; i--)
+    {
+        rightMax[i] = max(rightMax[i + 1], height[i]);
+    }
+
+    // Calculate trapped water for each section
+    int totalTrappedWater = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        int waterLevel = min(leftMax[i], rightMax[i]);
+
+        totalTrappedWater += waterLevel - height[i];
+    }
+
+    return totalTrappedWater;
+}
+
+int main()
+{
+    int height[] = {4, 2, 0, 6, 3, 2, 5};
+    int n = sizeof(height) / sizeof(height[0]);
+
+    int totalTrappedWater = trappedRainWater(height, n);
+
+    cout << "The total trapped water is: " << totalTrappedWater << endl;
+
+    return 0;
+}
+
+
+
+//output 
+The total trapped water is: 11
