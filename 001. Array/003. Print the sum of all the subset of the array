@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int arr[5] = {2, 4, 6, 8, 10};
+
+    for (int i = 0; i < 5; i++)
+    {
+        int sum = 0;
+        for (int j = i; j < 5; j++)
+        {
+            for (int k = i; k <= j; k++)
+            {
+                cout << arr[k] << " ";
+            }
+
+            cout << endl;
+            sum += arr[j];
+        }
+        cout <<"The sum of the subset is  "<<sum << endl;
+        cout << endl;
+    }
+}
+
+//output 
+
+// 2 
+// 2 4 
+// 2 4 6 
+// 2 4 6 8 
+// 2 4 6 8 10 
+// The sum of the subset is  30
+
+// 4 
+// 4 6 
+// 4 6 8 
+// 4 6 8 10 
+// The sum of the subset is  28
+
+// 6
+// 6 8
+// 6 8 10
+// The sum of the subset is  24
+
+// 8
+// 8 10
+// The sum of the subset is  18
+
+// 10
+// The sum of the subset is  10
