@@ -1,0 +1,34 @@
+//time complexity of the code is O( n )
+
+#include<iostream>
+using namespace std;
+int buyAndSellStocks(int prices[])
+{
+    int buyPrice =INT16_MAX;
+    int maxProfit =0;
+
+    for(int i=0;i<6;i++)
+    {
+        if(buyPrice<prices[i])         // if this condition is true that means we have profit
+        {
+            int profit = prices[i]-buyPrice;    
+
+            if(maxProfit<profit)
+            maxProfit =profit;
+
+        }
+        else 
+        buyPrice=prices[i];
+    }
+return maxProfit;
+
+}
+int main()
+{
+    int prices[]={7,1,5,3,6,4};
+   cout<< "Total maximum profit is "<<buyAndSellStocks(prices);
+
+}
+
+//ouput 
+// Total maximum profit is 5
