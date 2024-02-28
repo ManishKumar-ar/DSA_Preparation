@@ -1,4 +1,9 @@
 // time taken for merging or moving elements from A and B to C is -- O( m+ n ) 
+//there are ( log n ) passes to apply merge sort and we combine n elements in each passes , so them time complexity is   O ( n logn)
+//merge is stable
+//merge sort take extra space so space complexity -  S(n)
+//
+//merge sort vs insertions sort
 
 #include <iostream>
 using namespace std;
