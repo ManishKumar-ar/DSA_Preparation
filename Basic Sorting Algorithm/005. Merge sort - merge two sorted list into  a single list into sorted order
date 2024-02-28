@@ -5,6 +5,80 @@
 //
 //merge sort vs insertions sort
 
+..........................................................................................................................................
+///here the time complexity is O( m + n) because here we simply copying the elements
+//to apply the below code both the array must be sorted then we get a sigle sorted array otherwise not.
+
+#include <iostream>
+using namespace std;
+
+void merge(int arr1[], int arr2[], int c[], int m, int n)
+{
+
+    int i = 0, j = 0, k = 0;
+
+    while (i < m && j < n)
+    {
+        if (arr1[i] <= arr2[j])
+        {
+            c[k] = arr1[i];
+            i++;
+            k++;
+        }
+        else
+        {
+            c[k++] = arr2[j++];
+        }
+    }
+
+    while (i < m)
+    {
+        c[k] = arr1[i];
+        i++;
+        k++;
+    }
+
+    while (j < n)
+    {
+        c[k] = arr2[j];
+        j++;
+        k++;
+    }
+}
+
+int main()
+{
+    int arr1[5] = {2, 10, 18, 20, 23};
+    int arr2[4] = {4, 9, 19, 25};
+    int c[100];
+
+    merge(arr1, arr2, c, 5, 4);
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < 9; i++)
+    {
+        cout << c[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+
+
+// output
+// Sorted array : 2 4 9 10 18 19 20 23 25
+
+
+
+
+
+
+......................................................................................................................................................
+
+
+
+
 #include <iostream>
 using namespace std;
 
