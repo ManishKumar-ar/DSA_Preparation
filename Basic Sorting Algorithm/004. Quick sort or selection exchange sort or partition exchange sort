@@ -1,4 +1,5 @@
 //time complexity is O ( n logn )    or O ( n^2 ) 
+//does n't need an extra array
 
 #include <iostream>
 #include <climits>
