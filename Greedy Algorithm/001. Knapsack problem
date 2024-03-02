@@ -1,0 +1,47 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+struct Item {
+    int value;
+    int weight;
+};
+
+
+
+double fractionalKnapsack(int W, vector<Item>& items) {
+
+
+    double totalValue = 0.0;
+    int currentWeight = 0;
+
+    for (const auto& item : items) {
+        if (currentWeight + item.weight <= W) {
+                                                                            // Take the whole item
+            totalValue += item.value;
+            currentWeight += item.weight;
+        } else {
+                                                                                       // Take a fraction of the item
+            int remainingWeight = W - currentWeight;
+            totalValue += (double)remainingWeight / item.weight * item.value;
+            break;                                                     // Knapsack is full
+        }
+    }
+
+    return totalValue;
+}
+
+int main() {
+    vector<Item> items = {{60, 10}, {100, 20}, {120, 30}};
+    int W = 50;                                                                    // Capacity of knapsack
+
+    double max_value = fractionalKnapsack(W, items);
+    cout << "Maximum value that can be obtained: " << max_value << endl;
+
+    return 0;
+}
+
+//output 
+// Maximum value that can be obtained: 240
