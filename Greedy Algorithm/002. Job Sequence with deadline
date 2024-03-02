@@ -1,0 +1,79 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+// Structure to represent a job
+struct Job {
+    char id;        // Job Id
+    int deadline;   // Deadline of the job
+    int profit;     // Profit associated with the job
+};
+
+// Comparison function to sort jobs based on profit in descending order
+bool compare(Job a, Job b) {
+    return a.profit > b.profit;
+}
+
+// Function to find the maximum profit job sequence
+void jobSequencing(vector<Job>& jobs) {
+    // Sort jobs based on profit in descending order
+    sort(jobs.begin(), jobs.end(), compare);
+
+    // Find the maximum deadline
+    int maxDeadline = 0;
+    for (const Job& job : jobs) {
+        maxDeadline = max(maxDeadline, job.deadline);
+    }
+
+    // Initialize array to track slot availability
+    vector<bool> slot(maxDeadline, false);
+
+    // Initialize variables to track total profit and number of jobs scheduled
+    int totalProfit = 0;
+    int scheduledJobs = 0;
+
+    // Schedule jobs
+    for (const Job& job : jobs) {
+        // Find a free slot before the deadline
+        for (int i = min(job.deadline - 1, maxDeadline - 1); i >= 0; --i) {
+            if (!slot[i]) {
+                // Schedule job
+                slot[i] = true;
+                totalProfit += job.profit;
+                ++scheduledJobs;
+                break;
+            }
+        }
+    }
+
+    // Output the scheduled jobs and total profit
+    cout << "Scheduled Jobs: ";
+    for (int i = 0; i < maxDeadline; ++i) {
+        if (slot[i]) {
+            cout << i + 1 << " ";
+        }
+    }
+    cout << endl;
+    cout << "Total Profit: " << totalProfit << endl;
+}
+
+int main() {
+    vector<Job> jobs = {
+        {'a', 2, 100},
+        {'b', 1, 19},
+        {'c', 2, 27},
+        {'d', 1, 25},
+        {'e', 3, 15}
+    };
+
+    jobSequencing(jobs);
+
+    return 0;
+}
+
+
+//output 
+//Scheduled Jobs: 1 2 3 
+//Total Profit: 142
