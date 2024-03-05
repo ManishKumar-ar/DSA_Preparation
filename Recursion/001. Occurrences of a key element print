@@ -1,0 +1,99 @@
+#include <iostream>
+using namespace std;
+
+void occurrence(int A[], int n, int index, int key)
+{
+    if (index >= n)
+        return;
+
+    if (A[index] == key)
+        cout << index << " ";
+
+    occurrence(A, n, index + 1, key);
+}
+
+int main()
+{
+    int arr[9] = {3, 2, 4, 5, 6, 2, 7, 2, 2};
+    int key = 2;
+    occurrence(arr, 9, 0, key);
+    return 0; // Return statement from main
+}
+
+//output 
+//1 5 7 8
+
+
+
+
+
+
+.................................................................................................................................................
+
+#include <iostream>
+using namespace std;
+void occurrence(int A[], int n, int key)
+{
+
+ cout<<"Key element occure at indices : "<<endl;
+    for (int i = 0;i < n; i++)
+    {
+        if (key == A[i])
+        {
+            cout<<i<<" ";
+        }
+    }
+}
+int main()
+{
+    int arr[9] = {3, 2, 4, 5, 6, 2, 7, 2, 2};
+    int key = 2;
+    occurrence(arr, 9, 2);
+}
+
+
+//output 
+//Key element occure at indices : 
+//1 5 7 8
+
+
+
+
+
+
+.................................................................................................................................................
+
+#include <iostream>
+using namespace std;
+
+void occurrence(int A[], int n, int key)
+{
+    cout << "Key element occurs at indices: ";
+    bool found = false;
+    for (int i = 0; i < n; i++)
+    {
+        if (key == A[i])
+        {
+            found = true;
+            cout << i << " ";
+        }
+    }
+    if (!found)
+    {
+        cout << "Not found";
+    }
+    cout << endl;
+}
+
+int main()
+{
+    int arr[9] = {3, 2, 4, 5, 6, 2, 7, 2, 2};
+    int key = 2;
+    int arr_size = sizeof(arr) / sizeof(arr[0]);
+    occurrence(arr, arr_size, key);
+    return 0;
+}
+
+
+//output 
+//Key element occurs at indices: 1 5 7 8 
