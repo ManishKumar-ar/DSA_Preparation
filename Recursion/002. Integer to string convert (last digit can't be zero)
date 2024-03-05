@@ -1,0 +1,138 @@
+// the last digit can be  0 here
+
+#include <iostream>
+using namespace std;
+
+void IntegerToString(int A[], int index, int n)
+{
+    if (n == 0)
+    {
+        cout << "Array is empty" << endl;
+        return;
+    }
+
+    if (index >= n)
+        return;
+
+    switch (A[index])
+    {
+    case 0:
+        cout << "Zero ";
+        break;
+    case 1:
+        cout << "One ";
+        break;
+    case 2:
+        cout << "Two ";
+        break;
+    case 3:
+        cout << "Three ";
+        break;
+    case 4:
+        cout << "Four ";
+        break;
+    case 5:
+        cout << "Five ";
+        break;
+    case 6:
+        cout << "Six ";
+        break;
+    case 7:
+        cout << "Seven ";
+        break;
+    case 8:
+        cout << "Eight ";
+        break;
+    case 9:
+        cout << "Nine ";
+        break;
+    default:
+        cout << "Number must be in between 0 - 9 ";
+    }
+
+    IntegerToString(A, index + 1, n);
+}
+
+int main()
+{
+    int arr[] = {2, 0, 1, 0};
+    int arr_size = sizeof(arr) / sizeof(arr[0]);
+    IntegerToString(arr, 0, arr_size);
+    return 0;
+}
+
+
+//output 
+// Two Zero One Zero 
+
+
+
+
+..............................................................................................................................
+
+// the last digit can't be zero 
+
+#include <iostream>
+using namespace std;
+
+void IntegerToString(int A[], int index, int n)
+{
+    if (n == 0)
+    {
+        cout << "Array is empty" << endl;
+        return;
+    }
+
+    if (index >= n)
+        return;
+
+    switch (A[index])
+    {
+    case 0:
+        if (index != n - 1) // Check if it's not the last digit
+            cout << "Zero ";
+        break;
+    case 1:
+        cout << "One ";
+        break;
+    case 2:
+        cout << "Two ";
+        break;
+    case 3:
+        cout << "Three ";
+        break;
+    case 4:
+        cout << "Four ";
+        break;
+    case 5:
+        cout << "Five ";
+        break;
+    case 6:
+        cout << "Six ";
+        break;
+    case 7:
+        cout << "Seven ";
+        break;
+    case 8:
+        cout << "Eight ";
+        break;
+    case 9:
+        cout << "Nine ";
+        break;
+    default:
+        cout << "Number must be in between 0 - 9 ";
+    }
+
+    IntegerToString(A, index + 1, n);
+}
+
+int main()
+{
+    int arr[] = {2, 0, 1, 4};
+    int arr_size = sizeof(arr) / sizeof(arr[0]);
+    IntegerToString(arr, 0, arr_size);
+    return 0;
+}
+
+//output 
+// Two Zero One 
