@@ -16,6 +16,7 @@ int getithbit(int num, int index)
     }
 }
 
+
 int main()
 {
     getithbit(4, 1);  // Output: bit is 0
