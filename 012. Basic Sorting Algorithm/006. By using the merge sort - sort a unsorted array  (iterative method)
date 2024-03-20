@@ -56,6 +56,5 @@ int main()
     return 0;
 }
 
-
 //output 
 1 2 3 5 6 11 14 
