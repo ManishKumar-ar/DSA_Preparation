@@ -7,7 +7,6 @@ int setithbit(int num, int index)
     int result = (num & bitmask);
     cout<<result<<"  ";
     
-
 }
 int main()
 {
