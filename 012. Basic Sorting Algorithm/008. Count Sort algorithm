@@ -6,6 +6,7 @@
     int temp = *x;
     *x = *y;
     *y = temp;
+
 }
 int findMax(int A[], int n)
 {
