@@ -1,0 +1,92 @@
+#include <iostream>
+using namespace std;
+
+class Solution {
+private:
+    // dfs traversal function 
+    void dfs(int node, const vector<vector<int>>& adj, vector<int>& vis) {
+        vis[node] = 1; 
+        for(int it = 0; it < adj.size(); it++) {
+            if(adj[node][it] == 1 && !vis[it]) {
+                dfs(it, adj, vis); 
+            }
+        }
+    }
+public:
+   int findNumOfProvinces(vector<vector<int>> &roads, int n) {
+    int V = n;
+        vector<int> vis(V, 0); 
+        int cnt = 0; 
+        for(int i = 0; i < V; i++) {
+            if(!vis[i]) {
+                cnt++;
+                dfs(i, roads, vis); 
+            }
+        }
+        return cnt; 
+}
+};
+
+int main() {
+    vector<vector<int>> adj = {
+        {1, 0, 1},
+        {0, 1, 0},
+        {1, 0, 1}
+    };
+    
+    Solution ob;
+    cout << ob.numProvinces(adj) << endl;
+    
+    return 0;
+}
+
+
+
+//output
+//1
+
+
+
+
+
+
+...........................................................
+
+//  void dfs(int node, vector<int> adjLs[], int vis[]) {
+//         // mark the more as visited
+//         vis[node] = 1; 
+//         for(auto it: adjLs[node]) {
+//           if (!vis[it]) {
+//             dfs(it, adjLs, vis);
+//           }
+//         }
+//  }
+
+// int findNumOfProvinces(vector<vector<int>>& roads, int n) {
+
+//     vector<int> adjLS[n];
+//     for( int i =0;i<n; i++)
+//     {
+//         for ( int j=0;j<n;j++)
+//         {
+//             if(roads[i][j]==1&&i!=j)
+//             {
+//                 adjLS[i].push_back(j);
+//                 adjLS[j].push_back(i);
+//             }
+//         }
+//     }
+
+//     int vis[n] = {0};
+//     int count =0;
+
+//     for ( int i =0;i<n;i++)
+//     {
+//         if(!vis[i])
+//         {
+//             count++;
+//             dfs(i,adjLS,vis);
+//         }
+//     }
+//     return count;
+// }
